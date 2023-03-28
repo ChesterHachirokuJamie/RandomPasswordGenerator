@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">   
+<title> 随机密码生成器</title>
+<link rel="stylesheet" href="./files/bootstrap.min.css">
+<link rel="stylesheet" href="./files/style.css">
+<script src="./files/jquery.min.js"></script>
+<script src="./files/clipboard.min.js"></script>
+<script src="./files/md5.js"></script>
+<script src="./files/sha1.js"></script>
+<script src="./files/sha256.js"></script>
+</head>
+<body class="vsc-initialized" data-new-gr-c-s-check-loaded="14.1094.0" data-gr-ext-installed="">
+<script>
+var is_home = false;
+</script>
+<style>
+.runoob-page-content {
+    margin: 0 20px;
+}
+</style>
+<div class="runoob-page-content">	
+<div class="row">
+	<div class="col-md-12">
+		<div class="card">
+					<div id="compiler" class="card-header">
+			<strong style="font-size: 16px"><i class="fa fa-key" aria-hidden="true"></i> 随机密码生成器</strong>
+			</div>
+			<div class="card-body">
+        <div class="form-group">
+          <div class="row">
+					 <div class="col-md-12">
+<!-- start -->
+<form>
+<div class="form-row">
+<div class="col-md-6 shadow p-3 mb-5 bg-white rounded">
+<div class="form-group row mb-2">
+<div class="col-md-8 mb-3 font-weight-bold text-secondary" style="font-size: 16px;"><i class="fas fa-user-cog"></i> 设置</div>
+  </div>
+  <div class="form-group row mb-2">
+  <div class="col-md-8 mb-3">
+  <div class="input-group input-group-lg mb-3">
+    <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelect01">密码长度：</label>
+    </div>
+    
+      <select id="pgLength" class="custom-select">
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+      <option value="13">13</option>
+      <option value="14">14</option>
+      <option value="15">15</option>
+      <option value="16">16</option>
+      <option value="17">17</option>
+      <option value="18">18</option>
+      <option value="19">19</option>
+      <option value="20">20</option>
+      <option value="21">21</option>
+      <option value="22">22</option>
+      <option value="23">23</option>
+      <option value="24">24</option>
+      <option value="25">25</option>
+      <option value="26">26</option>
+      <option value="27">27</option>
+      <option value="28">28</option>
+      <option value="29">29</option>
+      <option value="30">30</option>
+      <option value="31">31</option>
+      <option value="32">32</option>
+      <option value="33">33</option>
+      <option value="34">34</option>
+      <option value="35">35</option>
+      <option value="36">36</option>
+      <option value="37">37</option>
+      <option value="38">38</option>
+      <option value="39">39</option>
+      <option value="40">40</option>
+      <option value="41">41</option>
+      <option value="42">42</option>
+      <option value="43">43</option>
+      <option value="44">44</option>
+      <option value="45">45</option>
+      <option value="46">46</option>
+      <option value="47">47</option>
+      <option value="48">48</option>
+      <option value="49">49</option>
+      <option value="50">50</option>
+      <option value="51">51</option>
+      <option value="52">52</option>
+      <option value="53">53</option>
+      <option value="54">54</option>
+      <option value="55">55</option>
+      <option value="56">56</option>
+      <option value="57">57</option>
+      <option value="58">58</option>
+      <option value="59">59</option>
+      <option value="60">60</option>
+      <option value="61">61</option>
+      <option value="62">62</option>
+      <option value="63">63</option>
+      <option value="64">64</option>
+      </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group form-check-inline">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" checked="" id="chkl" name="chku">
+      <label class="form-check-label" for="chkl">
+      小写字母(a..z)
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group form-check-inline">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" checked="" value="" id="chku" name="chku">
+      <label class="form-check-label" for="chku">
+      大写字母(A..Z)
+      </label>
+    </div>
+  </div>
+ 
+  <div class="form-group form-check-inline">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" checked="" value="" id="chkn" name="chkn">
+      <label class="form-check-label" for="chkn">
+      数字(0..9)
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group form-check-inline">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" checked="" value="" id="chksc" name="chku">
+      <label class="form-check-label" for="chksc">
+      特殊字符
+      </label>
+    </div>
+
+  </div>
+   
+</div>
+  <div class="col-md-6">
+    <div class="card text-center">
+      <div class="card-header">
+      <button type="button" class="btn btn-outline-primary " onclick="generatePassword();"><i class="fa fa-sync" aria-hidden="true"></i> 生成密码</button>
+      <button type="button" class="btn btn-outline-warning " id="copycode"><i class="fa fa-copy" aria-hidden="true"></i> 复制</button>
+      </div>
+      <div class="card-body overflow-auto my-3">
+      <h5 class="card-title display-4 font-weight-bold text-danger"><span class="badge badge-warning" id="output"></span></h5>
+      </div>
+    </div>
+  </div>
+  </div>
+</form>
+<!-- end -->
+					 </div>
+					</div>
+      </div>
+    </div>
+  </div>
+</div>
+	<div class="col-md-12 mt-2">
+		<div id="about" class="card">
+			<div class="card-header"><h3>概述</h3></div> 
+			<div class="card-body">
+			随机密码生成器可以实现在线生成随机密码、随机数，通过设置小写字母(a..z)、大写字母(A..Z)	、数字(0..9)、特殊字符等来随机生成 4 到 64 位的密码。对应输出的密码，SHA1，SHA256，MD5可以在Console中找到。			</div>
+        </div>
+	</div>
+</div>
+<script>
+var count = 0;
+$(function() {
+  $( "#pgLength" ).change(function() {
+    generatePassword()
+  });
+  $( "#chkl" ).change(function() {
+    generatePassword()
+  });
+  $( "#chku" ).change(function() {
+    generatePassword()
+  });
+  $( "#chkn" ).change(function() {
+    generatePassword()
+  });
+  $( "#chksc" ).change(function() {
+    generatePassword()
+  });
+})
+function generatePassword(){
+  $("#output").removeClass('is-valid')
+   var length = $("#pgLength").val();
+     var string = "abcdefghijklmnopqrstuvwxyz";
+     var strUpper="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+     var numeric = '0123456789';
+     var punctuation = '!@#$%^&*()_+~`|}{[]\:;?,./-=';
+     //var punctuation = '!@#$%^&*()_+~`|}{[]\:;?><,./-='; 该正则表达式中会导致随机输出的"<">"不被正常显示，因此去除。
+     var password = "";
+     while( password.length<length ) {
+         entity1 = Math.ceil(string.length*Math.random()) - 1;
+         entity2 = Math.ceil(numeric.length*Math.random()) - 1;
+         entity3 = Math.ceil(punctuation.length*Math.random()) - 1;
+         entity4 = Math.ceil(strUpper.length*Math.random()) - 1;
+          if($("#chkl").is(":checked") || $("#chku").is(":checked") || $("#chkn").is(":checked") || $("#chksc").is(":checked")) {
+            if($("#chkl").is(":checked") && password.length<length){
+              password += string.charAt( entity1 );
+            }
+            if($("#chku").is(":checked") && password.length<length){
+              password += strUpper.charAt( entity4 );
+            }
+            if($("#chkn").is(":checked") && password.length<length ){
+              password += numeric.charAt( entity2 );
+            }
+            if($("#chksc").is(":checked") && password.length<length){
+              password += punctuation.charAt( entity3 );
+            }
+          } else {
+            break;
+          }
+     }
+     if(password.trim()) {
+      $("#output").html(password.trim());
+      count ++;
+      console.log("输出第", count, "次");
+      console.log("输出的密码：", password);
+      console.log("密码SHA1：", hex_sha1(password));
+      console.log("密码SHA256：", hex_sha256(password));
+      console.log("密码MD5：", hex_md5(password));
+      console.log("========分割线======");
+     } else {
+      $("#output").html("请勾选选项！");
+     }
+}
+new ClipboardJS('#copycode', {
+	text: function(trigger) {
+		return $("#output").text();
+	}
+}).on('success', function(e) {
+  $("#copycode").html("已复制")
+  setTimeout(function(){ $("#copycode").html("<i class=\"fa fa-copy\" aria-hidden=\"true\"></i>&nbsp; 复制"); }, 2000);
+  e.clearSelection();
+}).on('error', function(e) {
+    alert('Error!');
+});
+generatePassword();
+</script>
+</div>
+</body></html>
